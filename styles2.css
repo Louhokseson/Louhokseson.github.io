@@ -70,6 +70,15 @@ hr {
     margin: 10px;
 }
 
+#hidden-link {
+    text-decoration: none; /* remove the underline */
+    color: inherit; /* inherit the color from the surrounding text */
+    font-style: inherit;
+    font-weight: normal;
+    /*cursor: default; /* remove the default cursor pointer */
+}
+
+
 .caption {
     margin-top: 0px;
     margin-bottom: 23px;
