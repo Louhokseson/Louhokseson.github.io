@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exchange Rates: GBP/CNY</title>
+  </head>
+  <body>
+    <h1>Exchange Rates: GBP/CNY</h1>
+    <p>The current exchange rate for British Pound Sterling (GBP) to Chinese Yuan (CNY) is:</p>
+    <p id="exchange-rate"></p>
+    <script>
+      // Add your JavaScript code here
+      // The Cross-Origin Resource Sharing policy doesn't allow me to 
+      const url1 = 'https://www.boc.cn/sourcedb/whpj';
+      async function getAllTablesFromWebsite(url) {
+        const response = await fetch(url);
+        const htmlString = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlString, 'text/html');
+        const tables = doc.querySelectorAll('table');
+        const name = Array.from(tables);
+        const exchangeRate = document.getElementById('exchange-rate');
+        exchangeRate.textContent = name;
+      }
+      getAllTablesFromWebsite(url1)
+      
+
+    </script>
+  </body>
+</html>
