@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">		
+		<meta name="description" content="View my CV and read a report about heat transport in atmospheres">
+		<meta name="keywords" content="CV, report, planets, Jupiter, heat transport">
+
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+		<script type="text/javascript" id="MathJax-script" async
+		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>   
+
+		<title> Visualizing the Loss Landscape of Neural Nets </title>
+		<link href="styles2.css" rel="stylesheet" media="all" type="text/css" />
+		<style> 
+
+			.boldtest{
+				font-weight: bold;			
+			}		
+			
+			/* em {
+				color: black;
+				font-style: normal;			
+			} */
+			
+			#lionstory {
+				background-color: DarkSeaGreen;			
+			}			
+			
+		</style>		
+		
+	</head>
+
+	<body>
+
+        
+  
+	
+		<div class="report">
+		<p> 
+
+            <h1>A VPN I would highly refer to you</h1>
+            
+            <h3>Introduction</h3>
+            
+            <em>What do neural loss surfaces look like?</em> The seminar given by 
+            Tom Goldstein on February 8, 2018 visualized the structure of neural loss functions, 
+            and discussed the effect of loss landscapes on generalization.
+            The talk explained “filter normalization” that helps us to visualize loss function curvature 
+            and make meaningful side-by-side comparisons between loss functions. It also compared some extreme behavior observed in certain neural networks. 
+            In this report, we discuss the sharpness/flatness of minimizers found by different methods, as well as the effect of network architecture choices on the loss landscape.
+            In particular, the filter normalization is presented in mathematical language.
+            Motivation for this area of study is solid; the results outlined in Goldstein's seminar can help machine learning engineers to gain a better understanding of the neural loss functions.
+
+            <h3>Sharp-flat dilemma</h3>
+            
+            Small-batch SGD is considered to yield "flat" minimizers with good generalisation, whereas large batches produce "sharp" minima with poor generalization[1, 2, 3]
+
+            However, Bengio[4] refutes this notion, claiming that generality is unrelated to the curvature of loss surfaces. Goldstein has some interesting findings on the differences between sharp and flat minimizers.
+
+            In his talk, he explained that he trained a CIFAR-10 classifier using a 9-layer VGG network with batch normalization for a fixed number of epochs. He compared the use of different batch sizes: a large batch size of 8192, and a small batch size of 128.
+            
+            <h3>Filter normalization</h3>
+            Neural networks are trained on a corpus of feature vectors (e.g., images) \(x_{i}\)
+            and accompanying labels \(y_{i}\) by minimizing a loss of the form
+            \(\mathrm{L}(\Theta) = \dfrac{1}{m}\sum_{i=1}^{m}l(x_{i},y_{i};\Theta)\),
+            where \(\Theta\) denotes the parameters (weight) of the neural network, the function \(l(x_{i},y_{i};\Theta)\)
+            measures how well the neural network with parameters \(\Theta\) predicts the label of a data sample, and \(m\) is the number of data samples. Neural nets contain many parameters, and so their loss functions live in a high-dimensional space.
+            
+
+            <h3>Random Directions</h3>
+
+            To apply Goldstein's method, select a graph's centre point and two direction vectors, \(\delta\) and \(\eta\). So we have
+            \begin{equation}
+            f(\alpha,\beta) = \mathrm{L}(\Theta^{*} + \alpha\delta + \beta \eta),
+            \end{equation}
+            in the 2D case. 
+            The method was used to investigate the trajectories of various minimization algorithms in[5].
+            While the "random directions" technique to visualizing loss landscapes is straightforward, it fails to reflect the inherent geometry of loss surfaces and so cannot be used to 
+            compare the geometry of two distinct minimizers or networks. The <em>scale invariance</em> in network weights is the reason behind this.
+
+            To remove this scaling effect, we plot loss functions using filter-wise normalized directions.
+            we normalize each filter in \(d\) to have the same norm of the corresponding filter in \(\Theta\). In other words, we make the replacement
+            \begin{equation}
+                d_{i,j} \leftarrow \dfrac{d_{i,j}}{\|d_{i,j}\|}\|\Theta_{i,j}\|
+            \end{equation}
+            where \(d_{i,j}\) represents the \(j\)th filter (not the \(j\)th weight) of the \(i\)-th layer of \(d\), and \(\|\cdot\|\) denotes the Frobenius norm.
+
+            
+            <h3>Conclusion</h3>
+            
+            Goldstein introduced a visualization tool that reveals the effects of a number of neural network practitioner decisions, including network architecture, optimizer selection, and batch size.
+    Anecdotal evidence and theoretical discoveries with sophisticated assumptions have propelled neural networks forward substantially in recent years. A better knowledge of the structure of neural networks is required to make further advances. 
+            
+            <h3>References</h3>
+            <ul>
+              <ol>
+                  <li>S. Hochreiter and J. Schmidhuber, “Flat Minima,” <i>Neural Computation</i>, vol. 9, no. 1, pp. 1–42, 01 1997. [Online]. Available:
+                      <a href="https://doi.org/10.1162/neco.1997.9.1.1"> https://doi.org/10.1162/neco.1997.9.1.1 </a></li>
+                  <li>P. Chaudhari, A. Choromanska, S. Soatto, Y. LeCun, C. Baldassi, C. Borgs, J. Chayes, L. Sagun, and R. Zecchina, “Entropy-SGD: biasing gradient descent into wide valleys,” <i>Journal of Statistical Mechanics: Theory and Experiment</i>, vol. 2019, no. 12, p. 124018, dec 2019. [Online]. Available:
+                      <a href="https://doi.org/10.1088/1742-5468/ab39d9"> https://doi.org/10.1088/1742-5468/ab39d9
+                    </a>
+                  </li>
+
+                  <li>N. S. Keskar, D. Mudigere, J. Nocedal, M. Smelyanskiy, and P. T. P. Tang, “On large-batch training for deep learning: Generalization gap and sharp minima,” <i>CoRR</i>, vol. abs/1609.04836, 2016. [Online]. Available:
+                    <a href="http://arxiv.org/abs/1609.04836"> http://arxiv.org/abs/1609.04836
+                  </a>
+                  </li>
+
+                  <li>L. Dinh, R. Pascanu, S. Bengio, and Y. Bengio, “Sharp minima can generalize for deep nets,” <i>CoRR</i>, vol. abs/1703.04933, 2017. [Online]. Available:
+                    <a href="http://arxiv.org/abs/1703.04933"> http://arxiv.org/abs/1703.04933
+                  </a>
+                  </li>
+
+                  <li>I. J. Goodfellow, O. Vinyals, and A. M. Saxe, “Qualitatively characterizing neural network optimiza- tion problems,” <i>arXiv preprint arXiv:1412.6544</i>, 2014.
+                  </li>
+
+              </ol>
+            </ul>
+            <h3>Figure</h3>
+
+            <figure>
+            <img src="ISR/filterplots.png" alt="Phillips 2-layer QG model" style="width:100%" class="center">
+            <figcaption>Figure 1: The 1D and 2D visualization of solutions obtained using SGD with different weight decay and batch size.
+            </figcaption>
+            </figure>
+		</p>
+		</div>	
+	
+	</body>
+
+</html>
