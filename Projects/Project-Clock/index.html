@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+<title>QR CLOCK</title>
+
+<script src="qrcode.js"></script>
+<script src="jquery.js"></script>
+<script src="qrclockgen.js"></script>
+
+
+<style type="text/css">
+	#qrbox {
+		width:500px;
+		height:500px;
+		margin: 50px auto;
+		position:relative;
+	}
+
+	.boxelem{
+		width:100%;
+		height:100%;
+		position:absolute;
+		top:0;
+		left:0;
+	}
+	.dark{
+		background-color:black;
+	}
+	
+	.slideL{
+		transition: top .5s ease, left .5s ease;
+		left:-100%;
+	}
+	.slideR{
+		transition: top .5s ease, left .5s ease;
+		left:100%;
+	}
+	.slideU{
+		transition: top .5s ease, left .5s ease;
+		top:-100%;
+	}
+	.slideD{
+		transition: top .5s ease, left .5s ease;
+		top:100%;
+	}
+	
+	.outL{
+		left:-100%;
+	}
+	.outR{
+		left:100%;
+	}
+	.outU{
+		top:-100%;
+	}
+	.outD{
+		top:100%;
+	}
+	.slideback{
+		transition: top .5s ease, left .5s ease;
+		top:0;
+		left:0;
+	}
+
+	.slidein{
+		transition: background-color .5s ease;
+		background-color:black;
+	}
+	.slideout{
+		transition: background-color .5s ease;
+		background-color:transparent;
+	}
+</style>
+
+</head>
+<body>
+<div id="qrbox"> 
+    
+</div>
+</body>
+</html>
