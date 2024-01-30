@@ -116,36 +116,50 @@ hr {
     width: 50%;
 }
 
-/* Style for the tooltip */
+
+/* Tooltip container */
 .tooltip {
     position: relative;
     display: inline-block;
-    cursor: pointer; /* Change cursor to pointer to indicate interactivity */
-}
-
-/* Style the tooltip text */
-.tooltip .tooltiptext {
+    cursor: pointer;
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
     visibility: hidden;
-    width: auto;
-    max-width: 300px; /* Set maximum width for the tooltip */
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-    color: white;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
     text-align: center;
+    padding: 5px 0;
     border-radius: 6px;
-    padding: 10px;
+  
+    /* Position the tooltip text */
     position: absolute;
     z-index: 1;
-    bottom: 125%;
+    bottom: 100%; /* Place the tooltip text above the tooltip */
     left: 50%;
-    transform: translateX(-50%);
+    margin-left: -60px; /* Use half of the width to center the tooltip text */
+  
     /* Fade in tooltip */
     opacity: 0;
     transition: opacity 0.3s;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
+  }
+  
+  /* Tooltip arrow */
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Place the arrow at the bottom of the tooltip text */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-}
-
+  }
