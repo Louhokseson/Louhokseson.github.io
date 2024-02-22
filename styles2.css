@@ -15,6 +15,10 @@ a {
     color: #0000FF;
 }
 
+a:hover {
+    filter: brightness(200%);
+}
+
 a:visited {
     color: #CD5C5C;
 }
