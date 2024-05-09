@@ -88,8 +88,10 @@ hr {
 #hidden-link {
     text-decoration: none; /* remove the underline */
     color: inherit; /* inherit the color from the surrounding text */
+    font-family: inherit; /* inherit the font family from the parent */
+    font-size: inherit; /* inherit the font size from the parent */
     font-style: inherit;
-    font-weight: normal;
+    font-weight: inherit; /* inherit the font weight from the parent */
     /*cursor: default; /* remove the default cursor pointer */
 }
 
