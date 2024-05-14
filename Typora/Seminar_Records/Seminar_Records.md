@@ -4,3 +4,5 @@ This page is created for recording the seminar Xuexun has attended and made note
 
 ### [9 May 2024 Chen Qian in Warwick](9 May 2024 Chen Qian in Warwick.md)
 
+### [13 May 2024 Venkat Kapil in Warwick](13 May 2024 WCPM seminar.md)
+
