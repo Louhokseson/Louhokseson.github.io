@@ -1,4 +1,4 @@
-# Physics Seminar 10 May in Warwick
+# 10 May Physics Seminar in Warwick
 
 Speaker: Jerome Jackson STFC
 
@@ -15,6 +15,6 @@ GW starts with a non-interacting Green function(hybridisation function) do itera
 Steps
 
 - polarisability
-- 
+- And so on
 
 More papers about GW you can find [here](https://www.questaal.org/tutorial/gw/qsgw_si/#footnotes-and-references) [1-5].

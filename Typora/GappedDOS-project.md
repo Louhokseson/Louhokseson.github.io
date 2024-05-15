@@ -6,3 +6,4 @@ Pointed out the $h(x)$​ will become a part of valence band when adsorbate is f
 
 ### [$10^{\text{th}}$ May 2024](10-MAY-2024.html)
 
+Corrected the understanding of configuration vector and $h(x)$ would move along the valence band and conduction band when we vary the distance. Shifted the band above and obtained a "prefect" gapped adiabatic PESs. Raised a question on link between broadening effect of states and the unique adiabatic eigenvalues computed from Hamiltonian Matrix. 
