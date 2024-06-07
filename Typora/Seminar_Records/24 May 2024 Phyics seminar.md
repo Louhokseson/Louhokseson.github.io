@@ -12,3 +12,4 @@ Trace Sampling: It was mentioned in this [paper](https://pubs.aip.org/aip/jcp/ar
 
 The trace sampling might link to the electronic relaxation which could link to the friction evaluation (Especially the memory friction)
 
+### Very interesting need to come back to his paper

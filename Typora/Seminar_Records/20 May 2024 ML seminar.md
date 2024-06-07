@@ -1,4 +1,4 @@
-# Group ML workshop  Deep Learning: CNN
+# Maurer Group ML Workshop--Deep Learning: CNN
 
 Speaker: Mariia Radova
 
