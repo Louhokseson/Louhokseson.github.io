@@ -2,7 +2,7 @@
 
 Speaker: Joe Gikes
 
-Slides: 
+Slides:  [here](https://github.com/maurergroup/group_library/blob/master/tutorial/julia_tutorial.pdf)
 
 JIT Compilation (Just In Time)
 
